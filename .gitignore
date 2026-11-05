@@ -1,0 +1,9 @@
+*.html
+!index.html
+*.bak
+*.old
+*.log
+.env
+.env.*
+.DS_Store
+__pycache__/
