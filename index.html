@@ -29,8 +29,8 @@ h1,h2,h3,h4{color:var(--tx);font-family:"Iowan Old Style","Palatino Linotype",Pa
 header{position:sticky;top:0;z-index:20;background:var(--nav);border-bottom:1px solid var(--bd);box-shadow:var(--nav-sh)}
 nav{max-width:1080px;margin:auto;padding:10px 24px;display:flex;align-items:center;gap:18px}
 .logo{font-family:Georgia,serif;font-weight:600;color:var(--tx);text-decoration:none;margin-right:auto;white-space:nowrap}
-.nl{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none}
-.nl a{color:var(--mu);text-decoration:none;font-size:14px;white-space:nowrap;display:inline-block;padding:8px 4px}.nl a:hover{color:var(--tx)}
+.nl{display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scroll-behavior:smooth;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;flex:1;min-width:0}
+.nl a{color:var(--mu);text-decoration:none;font-size:14px;white-space:nowrap;display:inline-block;padding:8px 4px;flex:none}.nl a:hover{color:var(--tx)}
 .tg{position:relative;width:64px;height:32px;border-radius:999px;background:var(--badge);border:1px solid var(--bd2);cursor:pointer;padding:0;flex:none;color:var(--mu)}
 .tg:hover{border-color:var(--ac)}
 .tg::before{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--btn);transition:transform .2s}
@@ -223,6 +223,8 @@ dl.g div{padding:12px 0}
   .brand-logo{height:32px;max-width:96px}
 }
 
+.brand-wordmark{display:inline-block;font:700 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;color:var(--tx);white-space:nowrap;vertical-align:middle;margin-right:10px}
+@media(max-width:560px){.brand-wordmark{font-size:11px}}
 </style>
 </head>
 <body>
@@ -262,10 +264,10 @@ dl.g div{padding:12px 0}
 
 <article class="ws"><div>
 <span class="mono tag"><img class="lg lg-l" src="assets/logos/akamai.svg" width="18" height="18" alt="Akamai logo"><img class="lg lg-d" src="assets/logos/akamai-dark.svg" width="18" height="18" alt="Akamai logo">02 · Akamai EAA</span>
-<h4>Tunnel Renewal</h4>
-<p>Supported the renewal of Akamai EAA tunnel configurations through a staged validation and deployment process.</p>
+<h4>Tunnel Migration Support</h4>
+<p>Supported Akamai EAA tunnel migration through a staged validation, synchronization and deployment process.</p>
 <ul>
-<li>Prepared existing configuration details and supported the renewal process.</li>
+<li>Reviewed existing configuration details and supported the migration process.</li>
 <li>Performed validation and synchronization checks during the update.</li>
 <li>Supported final deployment verification.</li>
 </ul>
@@ -364,12 +366,12 @@ dl.g div{padding:12px 0}
 <footer><div><span>© 2026 Ashish Kumar</span><span><a href="https://linkedin.com/in/ashish-kumar258">LinkedIn</a> · <a href="https://github.com/ashishjha2910"><img class="lg lg-l" src="assets/logos/github.svg" width="18" height="18" alt="GitHub logo"><img class="lg lg-d" src="assets/logos/github-dark.svg" width="18" height="18" alt="GitHub logo">GitHub</a> · <a href="mailto:ashishdss258@gmail.com">Email</a> · <a href="tel:+919576184816">+91 95761 84816</a></span></div></footer>
 <script>
 (function(){var r=document.documentElement,b=document.getElementById("tg"),tc=document.getElementById("tc");
-var BRAND={times:{src:"assets/logos/times-internet.png",alt:"Times Internet logo"},lnct:{src:"",alt:"LNCT Group of Colleges logo"},kodnest:{src:"",alt:"KodNest"}};
+var BRAND={times:{src:"https://raw.githubusercontent.com/ashishjha2910/portfolio/main/assets/logos/times-internet.png",alt:"Times Internet logo"},lnct:{src:"",alt:"LNCT Group of Colleges logo"},kodnest:{src:"",alt:"KodNest"}};
 function apply(t){r.setAttribute("data-theme",t);b.setAttribute("aria-label","Switch to "+(t==="dark"?"light":"dark")+" theme");if(tc)tc.content=getComputedStyle(r).getPropertyValue("--nav").trim()}
 apply(r.getAttribute("data-theme"));
 b.onclick=function(){var n=r.getAttribute("data-theme")==="dark"?"light":"dark";apply(n);try{localStorage.setItem("theme",n)}catch(e){}};
 try{matchMedia("(prefers-color-scheme: light)").addEventListener("change",function(e){var s;try{s=localStorage.getItem("theme")}catch(x){}if(!s)apply(e.matches?"light":"dark")})}catch(e){}
-document.querySelectorAll("[data-brand]").forEach(function(e){var c=BRAND[e.dataset.brand];if(c&&c.src){var i=new Image();i.className="lg lgb";i.alt=c.alt;i.src=c.src;e.insertBefore(i,e.firstChild)}});
+document.querySelectorAll("[data-brand]").forEach(function(e){var c=BRAND[e.dataset.brand];if(c&&c.src){var i=new Image();i.className="lg lgb";i.alt=c.alt;i.onerror=function(){i.remove();if(!e.querySelector(".brand-wordmark")){var w=document.createElement("span");w.className="brand-wordmark";w.textContent="TIMES INTERNET";e.insertBefore(w,e.firstChild)}};i.src=c.src;e.insertBefore(i,e.firstChild)}});
 var cp=document.getElementById("cp");cp.onclick=function(){var m="ashishdss258@gmail.com";(navigator.clipboard?navigator.clipboard.writeText(m):Promise.reject()).then(function(){cp.textContent="Copied"},function(){cp.textContent="Press Ctrl+C"});setTimeout(function(){cp.textContent="Copy"},1800)};
 })();
 </script>
